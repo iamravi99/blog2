@@ -74,12 +74,12 @@ function Navbar() {
           {/* Logo */}
           <img src={logo} alt="logo" className="h-8 w-8 sm:h-10 sm:w-10 mr-2 ml-2 sm:ml-[15px]" />
 
-          <a className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px]">
+          <a className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px] truncate max-w-[120px] sm:max-w-full">
             MultiverseDB
           </a>
         </div>
 
-        <div className="navbar-end flex items-center gap-2">
+        <div className="navbar-end flex items-center gap-1 sm:gap-2">
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {navItems}
@@ -87,7 +87,7 @@ function Navbar() {
           </div>
 
           {/* Theme Toggle Button */}
-          <label className="swap swap-rotate">
+          <label className="swap swap-rotate scale-75 sm:scale-100">
             <input
               type="checkbox"
               checked={theme === "dark"}
@@ -141,9 +141,9 @@ const AuthUI = () => {
         <div>
           <button 
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="px-3 py-1.5 sm:px-4 sm:py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md flex items-center text-sm sm:text-base"
+            className="px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md flex items-center text-xs sm:text-base"
           >
-            <span className="mr-2">{currentUser.displayName || 'User'}</span>
+            <span className="mr-1 sm:mr-2 truncate max-w-[60px] sm:max-w-full">{currentUser.displayName || 'User'}</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
