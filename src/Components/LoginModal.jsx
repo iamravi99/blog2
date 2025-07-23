@@ -27,57 +27,62 @@ const LoginModal = () => {
 
   return (
     <>
-      <dialog id="login_modal" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <dialog id="login_modal" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box rounded-2xl p-6 bg-white shadow-lg">
+          <form method="dialog" className="absolute right-4 top-4">
+            <button className="btn btn-sm btn-circle btn-ghost text-xl">✕</button>
           </form>
-          <h3 className="font-bold text-lg mb-4">Login</h3>
-          
-          {error && <div className="alert alert-error mb-4">{error}</div>}
-          
-          <form onSubmit={handleSubmit}>
-            <div className="form-control mb-3">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
+
+          <h3 className="text-2xl font-semibold text-center text-primary mb-2">Welcome Back</h3>
+          <p className="text-sm text-center text-gray-500 mb-4">Login to your account</p>
+
+          {error && (
+            <div className="alert alert-error text-sm mb-4 py-2 px-3 rounded-md">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="form-control">
+              <label className="label font-medium">Email</label>
               <input
                 type="email"
-                placeholder="email@example.com"
-                className="input input-bordered"
+                placeholder="you@example.com"
+                className="input input-bordered input-primary w-full rounded-lg"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
+
+            <div className="form-control">
+              <label className="label font-medium">Password</label>
               <input
                 type="password"
-                placeholder="Password"
-                className="input input-bordered"
+                placeholder="Enter your password"
+                className="input input-bordered input-primary w-full rounded-lg"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            
-            <div className="form-control">
+
+            <div className="form-control mt-2">
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-primary w-full rounded-lg text-base"
                 disabled={loading}
               >
                 {loading ? 'Logging in...' : 'Login'}
               </button>
             </div>
           </form>
-          
-          <div className="mt-4 text-center">
-            Need an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link>
+
+          <div className="mt-5 text-center text-sm text-gray-600">
+            Don’t have an account?{' '}
+            <Link to="/signup" className="text-blue-600 font-medium hover:underline">
+              Sign Up
+            </Link>
           </div>
         </div>
       </dialog>

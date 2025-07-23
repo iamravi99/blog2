@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import { loginUser } from './Firebase';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from "react";
+import { loginUser } from "./Firebase";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
       await loginUser(email, password);
-      navigate('/'); // Redirect to home page after login
+      navigate("/"); // Redirect to home page after login
     } catch (error) {
-      setError('Failed to log in: ' + error.message);
+      setError("Failed to log in: " + error.message);
     }
 
     setLoading(false);
@@ -36,7 +36,9 @@ const Login = () => {
               {error && <div className="alert alert-danger">{error}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email</label>
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="form-control"
@@ -47,7 +49,9 @@ const Login = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
                   <input
                     type="password"
                     className="form-control"
@@ -62,11 +66,11 @@ const Login = () => {
                   className="btn btn-primary w-100"
                   disabled={loading}
                 >
-                  {loading ? 'Logging in...' : 'Login'}
+                  {loading ? "Logging in..." : "Login"}
                 </button>
               </form>
               <div className="mt-3 text-center">
-                Need an account? <Link to="/signup">Sign Up</Link>
+                Need an account??? <Link to="/signup">Sign Up</Link>
               </div>
             </div>
           </div>
