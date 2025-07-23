@@ -6,6 +6,16 @@ import { Link } from "react-router-dom";
 import LoginModal from "./LoginModal"
 
 function Navbar() {
+  const [mobileView, setMobileView] = useState(window.innerWidth < 640);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setMobileView(window.innerWidth < 640);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [sticky, setSticky] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const { currentUser } = useAuth();
@@ -37,7 +47,7 @@ function Navbar() {
   return (
     <div className={`w-full z-50 sticky top-0 transition-all duration-300 ${sticky ? "shadow-[0_2px_8px_rgba(255,255,255,0.3)]" : ""}`}>
       <div className="navbar bg-base-100">
-        <div className="navbar-start">
+        <div className="navbar-start flex-1 max-w-[50%] sm:max-w-none">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none"
@@ -74,12 +84,12 @@ function Navbar() {
           {/* Logo */}
           <img src={logo} alt="logo" className="h-8 w-8 sm:h-10 sm:w-10 mr-2 ml-2 sm:ml-[15px]" />
 
-          <a className="text-xl sm:text-2xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px] truncate max-w-[120px] sm:max-w-full">
+          <a className="text-lg sm:text-2xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px] truncate max-w-[100px] sm:max-w-full">
             MultiverseDB
           </a>
         </div>
 
-        <div className="navbar-end flex items-center gap-1 sm:gap-2">
+        <div className="navbar-end flex items-center gap-1 sm:gap-2 ml-auto">
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {navItems}
@@ -143,7 +153,13 @@ const AuthUI = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="px-2 py-1 sm:px-4 sm:py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md flex items-center text-xs sm:text-base"
           >
-            <span className="mr-1 sm:mr-2 truncate max-w-[60px] sm:max-w-full">{currentUser.displayName || 'User'}</span>
+            {mobileView ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <span className="mr-1 sm:mr-2 truncate max-w-[60px] sm:max-w-full">{currentUser.displayName || 'User'}</span>
+            )}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
