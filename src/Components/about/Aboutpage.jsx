@@ -6,7 +6,7 @@ const Aboutpage = () => {
       {/* Top Heading */}
       <div className="text-center mt-8">
         <h1 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">
-          About MarvelVerse
+          About Marvel Verse
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           A fan-made Marvel Universe Portal built with ❤️ by developers & fans alike.
