@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Avengers: Secret Wars",
+    "releaseYear": 2027,
+    "hero": "Avengers",
+    "director": "Destin Daniel Cretton",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Deadpool & Wolverine",
+    "releaseYear": 2024,
+    "hero": "Deadpool, Wolverine",
+    "director": "Shawn Levy",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Captain America: Brave New World",
+    "releaseYear": 2025,
+    "hero": "Captain America (Sam Wilson)",
+    "director": "Julius Onah",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Thunderbolts",
+    "releaseYear": 2025,
+    "hero": "Yelena, Red Guardian, Bucky",
+    "director": "Jake Schreier",
+   "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Blade",
+    "releaseYear": 2026,
+    "hero": "Blade",
+    "director": "Yann Demange",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Fantastic Four",
+    "releaseYear": 2026,
+    "hero": "Fantastic Four",
+    "director": "Matt Shakman",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Spider-Man: New Dimensions",
+    "releaseYear": 2027,
+    "hero": "Spider-Man",
+    "director": "Jon Watts",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Doctor Strange: Realm of Chaos",
+    "releaseYear": 2028,
+    "hero": "Doctor Strange",
+    "director": "Sam Raimi",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 9,
+    "title": "X-Men: Rise of Mutants",
+    "releaseYear": 2027,
+    "hero": "X-Men",
+    "director": "TBA",
+    "poster": "../src/assets/images/movie.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Midnight Sons",
+    "releaseYear": 2028,
+    "hero": "Blade, Ghost Rider, Moon Knight",
+    "director": "TBA",
+    "poster": "../src/assets/images/movie.jpg"
+  }
+]

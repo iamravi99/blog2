@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Earth-616",
+    "description": "The primary continuity of the Marvel Universe where most heroes like Iron Man and Captain America exist.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Earth-199999",
+    "description": "Also known as the Marvel Cinematic Universe (MCU), home to Avengers and Guardians of the Galaxy.",
+   "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Multiverse",
+    "description": "A vast web of alternate universes where different versions of Marvel characters exist.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Quantum Realm",
+    "description": "A mysterious dimension accessed through quantum technology, explored in Ant-Man series.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Asgard",
+    "description": "The mythical realm ruled by Odin, and home to Thor and Loki.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Wakanda",
+    "description": "A technologically advanced African nation, protected by the Black Panther.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "Dark Dimension",
+    "description": "A chaotic realm ruled by Dormammu, explored in Doctor Strange.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 8,
+    "title": "Sakaar",
+    "description": "A garbage planet ruled by the Grandmaster where Hulk became a gladiator.",
+    "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 9,
+    "title": "Titan",
+    "description": "The homeworld of Thanos, now a destroyed wasteland.",
+   "image": "../src/assets/images/uni.jpeg"
+  },
+  {
+    "id": 10,
+    "title": "Knowhere",
+    "description": "A remote outpost built inside the skull of a Celestial, often visited by the Guardians.",
+   "image": "../src/assets/images/uni.jpeg"
+  }
+]

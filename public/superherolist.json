@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Tony Stark",
+    "alias": "Iron Man",
+    "description": "A genius billionaire who built a high-tech armored suit to become Iron Man. Founder of Stark Industries and a core member of the Avengers.",
+    "power": "Genius-level intellect, advanced armor technology",
+    "weapon": "Iron Man Suit",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Steve Rogers",
+    "alias": "Captain America",
+    "description": "A World War II hero transformed by the Super Soldier Serum, Captain America leads with honor and bravery.",
+    "power": "Super strength, agility, leadership",
+    "weapon": "Vibranium Shield",
+    "team": "Avengers",
+   "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Thor Odinson",
+    "alias": "Thor",
+    "description": "The Norse God of Thunder from Asgard, wielding the magical hammer Mjolnir and later Stormbreaker.",
+    "power": "God of Thunder, immense strength",
+    "weapon": "Mjolnir / Stormbreaker",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Bruce Banner",
+    "alias": "Hulk",
+    "description": "After a gamma radiation accident, Bruce Banner transforms into the Hulk — a nearly unstoppable force of rage and power.",
+    "power": "Unlimited strength, regeneration",
+    "weapon": "His rage and strength",
+    "team": "Avengers",
+   "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Natasha Romanoff",
+    "alias": "Black Widow",
+    "description": "A master spy and hand-to-hand combat expert with a dark past. Trained in espionage and martial arts.",
+    "power": "Expert assassin, agile fighter",
+    "weapon": "Electro-shock batons",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Clint Barton",
+    "alias": "Hawkeye",
+    "description": "A skilled archer and marksman with unmatched precision. A loyal and strategic team player.",
+    "power": "Master archer, sharpshooter",
+    "weapon": "Bow and trick arrows",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Wanda Maximoff",
+    "alias": "Scarlet Witch",
+    "description": "A powerful sorceress capable of manipulating chaos magic and reality itself.",
+    "power": "Magic, telekinesis, mind manipulation",
+    "weapon": "Chaos Magic",
+    "team": "Avengers",
+   "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Vision",
+    "alias": "Vision",
+    "description": "An android with the power of the Mind Stone, created from Vibranium and synthetic material.",
+    "power": "Density control, flight, laser beams",
+    "weapon": "Mind Stone",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Peter Parker",
+    "alias": "Spider-Man",
+    "description": "A teenage superhero with spider-like abilities, mentored by Tony Stark.",
+    "power": "Wall-crawling, super agility, spider-sense",
+    "weapon": "Web shooters",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Stephen Strange",
+    "alias": "Doctor Strange",
+    "description": "A former surgeon turned Master of the Mystic Arts. Protects the multiverse with magic.",
+    "power": "Time manipulation, teleportation, magic",
+    "weapon": "Sling Ring, Eye of Agamotto",
+    "team": "Avengers",
+    "image": "../src/assets/images/ironman.jpg"
+  }
+]
