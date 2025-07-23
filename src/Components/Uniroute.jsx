@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from './footer'
+import Footer from './Footer'
 import Uni from './Uni'
 import Navbar from './Navbar'
 

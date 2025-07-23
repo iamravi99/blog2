@@ -3,7 +3,7 @@ import list from '../../public/list.json'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Card from './card';
+import Card from './Card';
 
 export const Avnshop = () => {
   const weaponData = list.filter((data) => data.category === "Weapon");
