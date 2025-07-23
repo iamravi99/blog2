@@ -6,12 +6,13 @@ import { Routes, Route} from "react-router-dom"
 
 import Superher from './Superhero/Superher'
 import Signup from './Components/Signup'
+import Login from './Components/Login'
 import About from './Components/about/About'
-
 
 import Uniroute from './Components/Uniroute'
 import Movieroute from './Components/Movieroute'
 import Contact from './Components/Contact'
+import { AuthProvider } from './contexts/AuthContext'
 
 
 
@@ -19,14 +20,14 @@ import Contact from './Components/Contact'
 function App() {
   
   return (
-    <>
+    <AuthProvider>
   
-
 <Routes>
   <Route path="/" element={<Home/>}  />
 
 <Route path="/superhero" element={<Superher/>}  />
 <Route path="/signup" element={<Signup/>}  />
+<Route path="/login" element={<Login/>}  />
 <Route path="/about" element={<About/>} />
 <Route path="/movie" element={<Movieroute/>} />
 <Route path="/uni" element={<Uniroute/>} />
@@ -41,7 +42,7 @@ function App() {
   
   
 
-    </>
+    </AuthProvider>
   )
 }
 

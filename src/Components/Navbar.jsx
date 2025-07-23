@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Login from "./Login";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
+import { useAuth } from "../contexts/AuthContext";
+import { logoutUser } from "./Firebase";
+import { Link } from "react-router-dom";
+import LoginModal from "./LoginModal"
 function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,21 +26,12 @@ function Navbar() {
     <>
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/">Home</a></li>
 
-<li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/uni">Multiverse</a></li>
-
-
-
+      <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/uni">Multiverse</a></li>
 
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md  mr-[20px]" href="/Superhero">Super Hero's</a></li>
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/movie">New Movies </a></li>
-      <li><a 
-      
-      href="/contact"
-      
-      className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]">Contact</a></li>
+      <li><a href="/contact" className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]">Contact</a></li>
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/about">About</a></li>
-      
-      <a className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>Login</a>
     </>
   );
 
@@ -54,6 +49,26 @@ function Navbar() {
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10">
               {navItems}
+              {!currentUser && (
+                <>
+                  <li>
+                    <button 
+                      onClick={() => document.getElementById('login_modal').showModal()}
+                      className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mt-2"
+                    >
+                      Login
+                    </button>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signup"
+                      className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mt-2"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 
@@ -65,7 +80,7 @@ function Navbar() {
           </a>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end gap-[10px] ">
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {navItems}
@@ -98,12 +113,73 @@ function Navbar() {
             </svg>
           </label>
 
-          
-          <Login />
+          {/* Auth UI */}
+          <AuthUI />
+          <LoginModal />
         </div>
       </div>
     </div>
   );
 }
+
+// AuthUI component to handle login/logout/signup
+const AuthUI = () => {
+  const { currentUser } = useAuth();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Failed to log out', error);
+    }
+  };
+
+  return (
+    <div className="relative">
+      {currentUser ? (
+        <div>
+          <button 
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md flex items-center"
+          >
+            <span className="mr-2">{currentUser.displayName || 'User'}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          {isDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-base-100 rounded-md shadow-lg py-1 z-50">
+              <button
+                onClick={handleLogout}
+                className="block w-full text-left px-4 py-2 text-sm hover:bg-base-200"
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="hidden lg:flex space-x-2">
+          <button 
+            onClick={() => document.getElementById('login_modal').showModal()}
+            className="min-w-[30px] text-center px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]"
+          >
+            Login
+          </button>
+          <Link
+            to="/signup"
+            className="min-w-[100px] text-center px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]"
+          >
+            Sign Up
+          </Link>
+        </div>
+
+      )}
+    </div>
+  );
+};
 
 export default Navbar;
