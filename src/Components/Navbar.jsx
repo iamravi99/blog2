@@ -84,9 +84,10 @@ function Navbar() {
           {/* 👇 LOGO IMAGE ADDED HERE */}
           <img src={logo} alt="logo" className="h-10 w-10 mr-2 ml-[15px]" />
 
-          <a className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px] max-w-[90px] sm:max-w-full truncate">
-            MultiverseDB
-          </a>
+          <a className="hidden sm:block text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-200 via-green-400 to-blue-700 bg-clip-text text-transparent pl-[5px] max-w-[90px] sm:max-w-full">
+  MultiverseDB
+</a>
+
         </div>
 
         <div className="navbar-end">
