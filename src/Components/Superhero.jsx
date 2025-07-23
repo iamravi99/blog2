@@ -11,21 +11,19 @@ import axios from 'axios';
 
 const Superhero = () => {
 const [shop,setshop]= useState([])
-useEffect (()=>{
-const getshop= async()=>{
-  try {
-   const res=  await axios.get("http://localhost:3000/shop")
-   console.log(res.data)
-   setshop(res.data)
-  } catch (error) {
-    console.log(error)
+useEffect(() => {
+  const getshop = async() => {
+    try {
+      const res = await axios.get("http://localhost:3000/superhero")
+      console.log(res.data)
+      setshop(res.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
 
-getshop();
-
-}
-,[]
+  getshop();
+}, []
 
 
 )
