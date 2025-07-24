@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Multiverse.css';
+
+// Import Google Font
+const fontLink = document.createElement('link');
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Iceland&display=swap';
+fontLink.rel = 'stylesheet';
+document.head.appendChild(fontLink);
+
 
 const Explore = () => {
   return (
@@ -16,7 +22,7 @@ const Explore = () => {
       </video>
 
       {/* Content */}
-      <div className="relative z-10 iceland-regular px-4 text-center">
+      <div className="relative z-10 px-4 text-center" style={{fontFamily: 'Iceland, sans-serif'}}>
         <Link
           to="/multiverse"
           className="inline-block px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold rounded-lg  transition duration-300 hover:scale-105 transform"
