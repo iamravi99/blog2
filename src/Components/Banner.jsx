@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import iron from "../assets/iron.png"
 
 const Banner = () => {

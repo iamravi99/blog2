@@ -26,13 +26,24 @@ function Navbar() {
     <>
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/">Home</a></li>
 
-<li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/uni">Multiverse</a></li>
+<li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/uni">Universe </a></li>
 
 
 
 
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md  mr-[20px]" href="/Superhero">Super Hero's</a></li>
       <li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/movie">New Movies </a></li>
+
+
+<li><a className="px-4 py-2 font-semibold rounded-lg text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-yellow-400 hover:via-red-500 hover:to-pink-500 transition-all duration-500 shadow-md mr-[20px]" href="/explore">Multi Verse </a></li>
+
+
+
+
+
+
+
+
       <li><a 
       
       href="/contact"
