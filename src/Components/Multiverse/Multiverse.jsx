@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Multiverse.css";
+import "./multiverse.css";
 
 
 const Multiverse = () => {

@@ -10,7 +10,8 @@ const Uni = () => {
   useEffect(() => {
     const fetchUniverses = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/uni");
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+        const res = await axios.get(`${API_URL}/uni`);
         setUniverses(res.data);
       } catch (error) {
         console.error("Failed to fetch universes:", error);
