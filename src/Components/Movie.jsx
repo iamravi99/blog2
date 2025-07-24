@@ -64,7 +64,7 @@ const Movie = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">
           Marvel’s Blockbuster Movies
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           Cinematic masterpieces that define the Marvel Universe.
           <span className="text-yellow-400 font-semibold block">
             Lights. Camera. Heroism.
@@ -91,7 +91,7 @@ const Movie = () => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title text-red-600">{movie.title}</h2>
-                  <p className="text-sm text-gray-300">Hero: {movie.hero}</p>
+                  <p className="text-sm text-gray-600">Hero: {movie.hero}</p>
                   <p className="text-sm">Release Year: {movie.releaseYear}</p>
                   <p className="text-sm text-yellow-400">
                     Director: {movie.director}

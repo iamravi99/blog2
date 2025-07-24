@@ -19,8 +19,8 @@ const Card = ({item}) => {
       <div className="badge badge-secondary">{item.category}</div>
     </h2>
     <p>{item.description}</p>
-    <div className="card-actions justify-end">Price:
-      <div className="badge badge-outline">{item.price}</div>
+    <div className="card-actions justify-end">
+     
       Hero:
       <div className="badge badge-outline">{item.hero}
 

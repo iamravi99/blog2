@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const Uni = () => {
   const [universes, setUniverses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUniverses = async () => {
@@ -15,6 +16,8 @@ const Uni = () => {
         setUniverses(res.data);
       } catch (error) {
         console.error("Failed to fetch universes:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -55,7 +58,7 @@ const Uni = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">
           Marvel Multiverse Realms
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           Explore the iconic universes where legends are born and destinies rewritten.
           <span className="text-yellow-400 font-semibold block">
             One multiverse. Infinite possibilities.
@@ -65,68 +68,34 @@ const Uni = () => {
 
       {/* Slider Section */}
       <div className="slider-container px-6 mt-10">
-        <Slider {...settings}>
-          {universes.map((uni, index) => (
-            <div key={index} className="p-4">
-              <div className="card bg-base-100 shadow-xl w-fit">
-                <figure>
-                  <img
-                    src={`/images/${uni.image}`}
-                    alt={uni.title}
-                    className="w-full h-48 object-cover rounded-t-xl"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-red-600">{uni.title}</h2>
-                  <p className="text-sm text-gray-300">{uni.description}</p>
+        {loading ? (
+          <p className="text-center">Loading universes...</p>
+        ) : (
+          <Slider {...settings}>
+            {universes.map((uni) => (
+              <div key={uni._id} className="p-4">
+                <div className="card bg-base-100 shadow-xl w-fit">
+                  <figure>
+                    <img
+  src={uni.image}
+  alt={uni.title}
+  className="w-full h-48 object-cover rounded-t-xl"
+/>
+
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-red-600">{uni.title}</h2>
+                    <p className="text-sm text-gray-600">{uni.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
       </div>
 
-
-
-<div className="text-center mt-10">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">
-          Marvel Multiverse Realms
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          Explore the iconic universes where legends are born and destinies rewritten.
-          <span className="text-yellow-400 font-semibold block">
-            One multiverse. Infinite possibilities.
-          </span>
-        </p>
-      </div>
-
-      {/* Slider Section */}
-      <div className="slider-container px-6 mt-10">
-        <Slider {...settings}>
-          {universes.map((uni, index) => (
-            <div key={index} className="p-4">
-              <div className="card bg-base-100 shadow-xl w-fit">
-                <figure>
-                  <img
-                    src={`/images/${uni.image}`}
-                    alt={uni.title}
-                    className="w-full h-48 object-cover rounded-t-xl"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-red-600">{uni.title}</h2>
-                  <p className="text-sm text-gray-300">{uni.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-
-
-
-
-      {/* Optional: Add another slider if needed */}
+     
+   
     </>
   );
 };
