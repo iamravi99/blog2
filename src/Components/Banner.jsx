@@ -4,10 +4,16 @@ const Banner = () => {
   const adRef = useRef(null);
 
   useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.type = 'text/javascript';
-    script1.innerHTML = `
-      atOptions = {
+    // Clear previous ad content
+    if (adRef.current) {
+      adRef.current.innerHTML = '';
+    }
+
+    // Create script for atOptions
+    const scriptSetup = document.createElement('script');
+    scriptSetup.type = 'text/javascript';
+    scriptSetup.text = `
+      var atOptions = {
         'key': '82131ce3b29bf80f2cf3efbc84c7dfdd',
         'format': 'iframe',
         'height': 90,
@@ -16,21 +22,28 @@ const Banner = () => {
       };
     `;
 
-    const script2 = document.createElement('script');
-    script2.type = 'text/javascript';
-    script2.src = '//www.highperformanceformat.com/82131ce3b29bf80f2cf3efbc84c7dfdd/invoke.js';
+    // Create script to load the ad
+    const scriptAd = document.createElement('script');
+    scriptAd.type = 'text/javascript';
+    scriptAd.src = 'https://www.highperformanceformat.com/82131ce3b29bf80f2cf3efbc84c7dfdd/invoke.js';
+    scriptAd.async = true;
 
     if (adRef.current) {
-      adRef.current.innerHTML = ''; // Clear previous content
-      adRef.current.appendChild(script1);
-      adRef.current.appendChild(script2);
+      adRef.current.appendChild(scriptSetup);
+      adRef.current.appendChild(scriptAd);
     }
   }, []);
 
   return (
     <div className='w-full max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8'>
       <div className="flex justify-center items-center py-4">
-        <div ref={adRef} className="w-[728px] h-[90px]" />
+        <div
+          ref={adRef}
+          className="w-[728px] h-[90px] bg-white rounded shadow-md flex justify-center items-center"
+        >
+          {/* Optional fallback text */}
+          <span className="text-gray-400 text-sm">Loading Ad...</span>
+        </div>
       </div>
     </div>
   );
